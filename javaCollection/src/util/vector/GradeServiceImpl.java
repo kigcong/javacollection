@@ -1,7 +1,9 @@
 package util.vector;
-
+//전체에서 특정 글자 바꾸기 단축키 ctrl + F
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Vector;
 
 /*
@@ -17,7 +19,7 @@ public class GradeServiceImpl implements GradeService {
 	// 필드에 아래 메소드들이 공유할 자료구조를 뭘 쓸까?
 	// 1. ArrayList 2.Map 3.Stack 4.HashMap
 	// 순서 o, 중복 o
-	private Vector<Grade> vec = new Vector<Grade>(); // grade를 담는 구조
+	private List<Grade> vec = new ArrayList<Grade>(); // grade를 담는 구조
 	Grade grade = new Grade(); // 디폴트 생성자가 있어서 에러 제거
 
 	@Override
@@ -43,17 +45,17 @@ public class GradeServiceImpl implements GradeService {
 		for (int i = 0; i < vec.size(); i++) {
 			// 만약 vec가 배열이라면
 			// vec.get(i)
-			String searchHakbun = vec.elementAt(i).getHakbun();
+			String searchHakbun = vec.get(i).getHakbun();
 			String anotherString;
 			// 객체.메소드.메소드.메소드.메소드 이런
 			// 패턴는 반드시 return값이 있는
 			// 메소드들 끼리 연결시에만 가능하다.
 			// 이런 방식을 메소드 체인리라고 함
 			if (hakbun.equalsIgnoreCase(searchHakbun)) {
-				String name = vec.elementAt(i).getName();
-				int kor = vec.elementAt(i).getKor();
-				int eng = vec.elementAt(i).getEng();
-				int math = vec.elementAt(i).getMath();
+				String name = vec.get(i).getName();
+				int kor = vec.get(i).getKor();
+				int eng = vec.get(i).getEng();
+				int math = vec.get(i).getMath();
 				grade = new Grade(searchHakbun, name, kor, eng, math);
 				msg = grade.toString();
 				break;// 중간이라도 학번이 일치하면 그대로 스톱
@@ -115,14 +117,14 @@ public class GradeServiceImpl implements GradeService {
 		Grade grade = null;
 
 		for (int i = 0; i < vec.size(); i++) {
-			String searchName = vec.elementAt(i).getName();
+			String searchName = vec.get(i).getName();
 			// 고정값(파라미터).equals(변수값)
 
 			if (name.equalsIgnoreCase(searchName)) {
 
-				grade = new Grade(searchName, vec.elementAt(i).getHakbun(), vec
-						.elementAt(i).getKor(), vec.elementAt(i).getEng(), vec
-						.elementAt(i).getMath());
+				grade = new Grade(searchName, vec.get(i).getHakbun(), vec
+						.get(i).getKor(), vec.get(i).getEng(), vec
+						.get(i).getMath());
 				// arr[i] = "홍길동";
 				temp.add(grade);
 				// temp.put();
