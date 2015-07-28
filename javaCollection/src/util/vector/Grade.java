@@ -1,5 +1,7 @@
 package util.vector;
 
+import java.util.Vector;
+
 public class Grade {
 	/*=====필드=====*/
 	private int kor, eng, math;
@@ -67,7 +69,7 @@ public class Grade {
 	public int getTotal(){
 		int total = 0; //지역변수는 초기화 필수
 	
-		total = this.kor + this.eng +this.math;
+		total = kor + eng +math;
 		return total;
 	}
 	/*
@@ -85,14 +87,13 @@ public class Grade {
 		return total;
 	}
 	@Override
-	public String toString() {
+	public  String toString()  {
 		// TODO Auto-generated method stub
 		return "성적표 [이름 : "+name+", 학번 : "+hakbun+" ]\n"
 				+"국어 : "+kor+", 영어 : "+eng+", 수학 : "+math+"\n"
 				+"총합 : "+getTotal(kor,eng,math)+"\n";
 				
 	}
-	
 	
 	
 	
